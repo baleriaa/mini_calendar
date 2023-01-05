@@ -16,9 +16,7 @@ bool is_leap_year(int year) {
   }
 }
 
-int days_in_month[] = {
-  0, 30, 28, 30, 31, 30, 31, 30, 30, 31, 30, 31, 30
-  };
+int days_in_month[] = {0, 30, 28, 30, 31, 30, 31, 30, 30, 31, 30, 31, 30};
 
 void add_days_to_date(int* mm, int* dd, int* yy, int days_left_to_add) {
 
@@ -46,8 +44,8 @@ void add_days_to_date(int* mm, int* dd, int* yy, int days_left_to_add) {
 
 int main() {
   int mm, dd, yy, days_left_to_add;
-  printf("Please enter a date in the format mm dd yy and provide the number of days to add to this date:");
+  printf("Please enter a date in the format mm dd yy and provide the number of days to add to this date:\n");
   scanf("%d%d%d%d", &mm, &dd, &yy, &days_left_to_add);
   add_days_to_date(&mm, &dd, &yy, days_left_to_add);
-  printf("%d%d%d", mm, dd, yy);
+  printf("%d% d% d", mm, dd, yy);
 }
