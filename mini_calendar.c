@@ -21,25 +21,27 @@ int days_in_month[] = {
   };
 
 void add_days_to_date(int* mm, int* dd, int* yy, int days_left_to_add) {
+
   while (days_left_to_add > 0)  {
     int days_left_in_month = days_in_month[*mm] - *dd;
-    if (is_leap_year(*yy))  {
-      days_left_in_month = days_left_in_month + 1;
+
+    if (is_leap_year(*yy) && (*mm == 2))  {
+      days_left_in_month++;
     }
     if (days_left_to_add > days_left_in_month)  {
-      days_left_to_add = days_left_to_add - days_left_in_month + 1;
+      days_left_to_add -= days_left_in_month + 1;
       *dd = 1;
+      
       if(*mm == 12) {
         *mm = 1;
         *yy = *yy + 1;
-      } else  {
-        *mm = *mm + 1;
-      }
-    } 
-    // *dd = *dd + 1;
-    // days_left_in_month ;
+      } 
+      else *mm = *mm + 1;
+    } else  {
+      *dd += days_left_to_add;
+      days_left_to_add = 0;
+    }
   }
-
 }
 
 int main() {
